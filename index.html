@@ -1,0 +1,149 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!--SIDEBAR-->
+        <aside class="sidebar">
+            <h2>Lab<span>Manage</span></h2>
+            <nav>
+                <a href="" class="">Dashboard</a>
+                <a href="#">Computer</a>
+                <a href="#">Students</a>
+                <a href="#">Schedule</a>
+                <a href="#">Borrowing</a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>LAB COMPUTER</p>
+                <small>SMK PI PPLG</small>
+            </div>
+        </aside>
+        <!--MAIN CONTENT-->
+        <main class="main">
+            <!--HEADER-->
+            <header class="header">
+                <div>
+                    <p class="welcome">wellcome back</p>
+                    <h1>Lab Dashboard</h1>
+                </div>
+                <div class="admin">
+                    <div>        
+                        <strong>Admin</strong>
+                        <small>Administrator</small>
+                    </div>    
+                    <div class="avatar">
+                        😎
+                    </div>
+                </div>
+            </header>
+            <!-- statistics-->
+            <section class="statistics">
+                <div class="stat-card">
+                    <div class="icon blue">
+                        💻
+                    </div>
+                    <div>
+                        <p>Total Komputer</p>
+                        <h2 id="totalComputer">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon green">
+                        ✅
+                </div>
+                    <div>
+                        <p>Available</p>
+                        <h2 id="availableComputer">0</h2>
+                    </div>
+                </div>   
+
+                <div class="stat-card">
+                    <div class="icon orange">
+                        👆
+                </div>
+                    <div>
+                        <p>in use</p>
+                        <h2 id="usedComputer">0</h2>
+                    </div>
+                </div> 
+                    
+                <div class="stat-card">
+                    <div class="icon red">
+                        💔
+                </div>
+                    <div>
+                        <p>Broken</p>
+                        <h2 id="brokenComputer">0</h2>
+                    </div>
+                </div> 
+            </section>
+            <!--COMPUTER MANAGEMENT-->
+            <section class="content-card">
+                <div class="section-header">
+                    <div>
+                        <h2>Computer Management</h2>
+                        <P>Manage Computer in the laboratory</P>   
+                    </div>
+                    <button class="btn-primary" onclick="openModal()"> + Add Computer</button>
+                </div>
+
+                <!--search-->
+                <div class="toolbar">
+                    <input type="text" id="searchInput" placeholder="search computer" onkeyup="searchComputer()">
+                    <select id="filterStatus" onchange="filterComputer()">
+                        <option value="all">All Status</option>
+                        <option value="available">Available</option>
+                        <option value="used">In Use</option>
+                        <option value="broken">Broken</option>
+                    </select>
+                </div>
+                <!--COMPUTER TABLE-->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Computer</th>
+                                <th>Specification</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="computerTable"></tbody>    
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+        <!-- MODAL -->
+        <div class="modal" id="computerModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add Computer</h2>
+                    <button type="button" onclick="closeModal()">X</button>
+                </div>
+            
+            <form id="computerForm">
+                <label>Computer Name</label>
+                <input type="text" id="computerName" placeholder="Example: PC=00" required>
+                <label>Specification</label>
+                <input type="text" id="computerspecification" placeholder=" Core i5/ RAM 8GB" required>
+                <label>Location</label>
+                <input type="text" id="location" placeholder="Example: LAB 1" required>
+                <label>Status</label>
+                <select id="status">
+                    <option value="available">Available</option>
+                    <option value="used">Used</option>
+                    <option value="required">Required</option>
+                    <option value="broken">Broken</option>
+                </select>
+                <button type="submit" class="btn-primary">Save Computer</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
